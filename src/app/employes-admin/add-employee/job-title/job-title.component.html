@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-6">
+    <h5>Job Title</h5>
+  </div>
+  <div class="col-6">
+      <mat-form-field>
+          <mat-select placeholder="Job" [disabled]="disable" [formControl]="jobsControl" required [(ngModel)]="selected" name="select">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let variable of jobsList" [value]="variable.title">
+              {{variable.title}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="jobsControl.hasError('required')">Please choose an Job</mat-error>
+          <mat-hint>{{jobsControl.value?.id}}</mat-hint>
+        </mat-form-field>
+  </div>
+</div>

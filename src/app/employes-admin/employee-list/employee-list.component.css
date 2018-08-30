@@ -1,0 +1,27 @@
+.edit{
+    background-image: url('../../../assets/img/edit.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.see{
+    background-image: url('../../../assets/img/view.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.delete{
+    background-image: url('../../../assets/img/delete.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+th.mat-sort-header-sorted {
+    color: black;
+  }

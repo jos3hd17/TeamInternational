@@ -1,0 +1,113 @@
+<div class="container top">
+  <h2 *ngIf="!adding">New Employee</h2>
+  <h2 *ngIf="edit">Edit Employee</h2>
+  <h2 *ngIf="view">View Employee</h2>
+  
+  <hr>
+  <div class="row top">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-6">
+          <h5>Name</h5>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name"  [formControl]="nameControl" [(ngModel)]="employee.emp_name" name="name">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:5px;">
+        <div class="col-6">
+          <h5>Dab</h5>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Select date" type="date" [formControl]="dateControl" [(ngModel)]="employee.emp_dab" name="dab">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5>Country</h5>
+        </div>
+        <div class="col">
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Country" [formControl]="countryControl" required [(ngModel)]="employee.emp_country" name="country">
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let country of countryList" [value]="country.name">
+                {{country.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="countryControl.hasError('required')">Please choose an country</mat-error>
+            <mat-hint>{{countryControl.value?.id}}</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row"  style="margin-top:5px;">
+        <div class="col-6">
+          <h5>Username</h5>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Pick an username" RestrictSpecialCharacters [formControl]="usernameControl" type="text" name="username" [(ngModel)]="employee.emp_username">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row"  style="margin-top:5px;">
+        <div class="col-6">
+          <h5>Hire Date</h5>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Select a hire date" type="date" [formControl]="dateControl"  name="hiredate" [(ngModel)]="employee.emp_hire_date">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row"  style="margin-top:5px;">
+        <div class="col-6">
+          <h5>Status</h5>
+        </div>
+        <div class="col-6">
+          <mat-slide-toggle  name="status" [(ngModel)]="employee.emp_status" [formControl]="statusControl"></mat-slide-toggle>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-6">
+          <h5>Area</h5>
+        </div>
+        <div class="col-6">
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="bold" [disabled]="view" (click)="setValue('Services')">Services</mat-button-toggle>
+            <mat-button-toggle value="italic" [disabled]="view"  (click)="setValue('Kitchen')">Kitchen</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <br>
+      <app-job-title [jobsList]="jobs" [selection]="employee" [disable]="view" style="margin-top:5px;"></app-job-title>
+      <div class="row"  style="margin-top:5px;">
+        <div class="col-6">
+          <h5>Tip Rate</h5>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Write an rate"  [formControl]="rateControl" name="rate" [(ngModel)]="employee.emp_rate">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <div class="row center-buttons">
+    <div class="col">
+      <button mat-button (click)="back()">Atrás</button>
+    </div>
+    <div class="col">
+      <button mat-button color="primary" (click)="save()"> Guardar</button>
+    </div>
+  </div>
+</div>

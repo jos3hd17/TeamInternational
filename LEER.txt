@@ -1,0 +1,6 @@
+Developed By: Jose David Hernandez Díaz
+
+1) Favor iniciar la aplicación deshabilitando proxy.
+   Please run application without proxy configuration
+2) La conexion o backend está en firebase "Firestore real database"
+   Database connection is allocated in firestore
